@@ -1,0 +1,28 @@
+<mat-toolbar id="main-toolbar" color="primary" class="mat-elevation-z2">
+    <div class="theme-container" fxLayout="row" fxLayoutAlign="space-between center">
+        <span fxHide="false" fxHide.gt-sm>
+            <button mat-icon-button>
+                <mat-icon class="mat-icon-lg">menu</mat-icon>
+            </button>
+        </span>
+        <a class="logo" routerLink="/">
+            <h2>LOGO</h2>
+        </a>
+        <div fxShow="false" fxShow.gt-sm class="horizontal-menu">
+            <a mat-button [routerLink]="" routerLinkActive="horizontal-active-link">
+                <span>Home</span>
+            </a>
+            <a routerLink="/personal-detail" mat-button [routerLink]="" routerLinkActive="horizontal-active-link">
+                <span>Personal Detail</span>
+            </a>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <a routerLink="/register" mat-button matTooltip="Sign Up" class="mx-2" fxShow="false" fxShow.gt-xs="true">
+                <span>Sign Up</span>
+            </a>
+            <a routerLink="/login" mat-button matTooltip="Sign In" class="mx-2" fxShow="false" fxShow.gt-xs="true">
+                <span>Login</span>
+            </a>
+        </div>
+    </div>
+</mat-toolbar>

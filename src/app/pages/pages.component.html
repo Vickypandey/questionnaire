@@ -1,0 +1,12 @@
+<mat-sidenav-container>
+    <mat-sidenav-content class="page-wrapper" fxLayout="column" fxLayoutAlign="start stretch">
+        <header [ngClass]="'toolbar-'+settings.toolbar" [class.main-toolbar-fixed]="settings.mainToolbarFixed">
+            <app-toolbar></app-toolbar>
+        </header>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+        <div class="sticky-footer-helper" fxFlex="grow"></div>
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

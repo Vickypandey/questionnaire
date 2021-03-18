@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~swiper/swiper-bundle.min.css";
+@import "./assets/styles/base";
+@import "./assets/styles/spaces";
+@import "./assets/styles/variables";
+@import "./assets/styles/custom-theme";
+
+.personal-detail .mat-tab-body-content {
+  overflow: hidden !important;
+  padding-top: 1rem;
+  height: auto !important;
+}
+
+.theme-container {
+  max-width: 1170px;
+  margin: 0 auto;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 1380px) {
+  .theme-container {
+    max-width: 1400px;
+  }
+}
