@@ -1,0 +1,73 @@
+<mat-card class="m-2 p-0">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" class="w-100 p-2">
+        <div></div>
+        <button mat-raised-button color="primary" (click)="openCustomerDialog(null)">
+            <mat-icon>add</mat-icon>
+            Add Users
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="table-wrapper">
+        <table mat-table [dataSource]="dataSource" matSort class="w-100">
+
+            <!-- FullName Column -->
+            <ng-container matColumnDef="fullName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+                <td mat-cell *matCellDef="let customer">Bikeshwar Pandey </td>
+            </ng-container>
+
+            <!-- Username Column -->
+            <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
+                <td mat-cell *matCellDef="let customer">bikeshwar </td>
+            </ng-container>
+
+            <!-- Email Column -->
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                <td mat-cell *matCellDef="let customer">bikeshwar@gmail.com</td>
+            </ng-container>
+
+            <!-- Store Column -->
+            <ng-container matColumnDef="qualification">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Qualification </th>
+                <td mat-cell *matCellDef="let customer">jhjhj</td>
+            </ng-container>
+
+            <!-- Wallet Balance Column -->
+            <ng-container matColumnDef="dob">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> DOB </th>
+                <td mat-cell *matCellDef="let customer">19999</td>
+            </ng-container>
+
+            <!-- Revenue Column -->
+            <ng-container matColumnDef="preferred location">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Preferred Location </th>
+                <td mat-cell *matCellDef="let customer">8766886</td>
+            </ng-container>
+
+            <ng-container matColumnDef="disability">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Disability </th>
+                <td mat-cell *matCellDef="let customer">8766886</td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let customer">
+                    <button mat-icon-button color="primary" (click)="openCustomerDialog(customer)" matTooltip="Edit">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="remove(customer)" matTooltip="Remove">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let customer; columns: displayedColumns;"></tr>
+        </table>
+        <!-- <p *ngIf="dataSource && dataSource.data.length === 0" class="py-5 mb-0 text-center">No data available</p>  -->
+    </div>
+    <mat-paginator showFirstLastButtons [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+</mat-card>

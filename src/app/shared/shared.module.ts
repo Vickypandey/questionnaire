@@ -47,10 +47,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component'
+
 
 @NgModule({
   declarations: [
-    HeaderCarouselComponent
+    HeaderCarouselComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -136,6 +139,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatStepperModule,
     PerfectScrollbarModule,
     HeaderCarouselComponent,
+    ConfirmDialogComponent
 
   ],
   providers: [

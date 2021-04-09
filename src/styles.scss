@@ -1,13 +1,28 @@
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,400;1,500;1,600&display=swap");
+// @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 @import "~swiper/swiper-bundle.min.css";
 @import "./assets/styles/base";
 @import "./assets/styles/spaces";
 @import "./assets/styles/variables";
+@import "./assets/styles/spinner";
 @import "./assets/styles/custom-theme";
+@import "./assets/styles/admin";
 
 .personal-detail .mat-tab-body-content {
   overflow: hidden !important;
   padding-top: 1rem;
   height: auto !important;
+}
+
+#app .mat-drawer-container {
+  background-color: #eeeeee;
+}
+
+.bg-primary {
+  background: #03a9f4;
+  color: white;
 }
 
 .theme-container {
@@ -22,5 +37,28 @@
 @media (min-width: 1380px) {
   .theme-container {
     max-width: 1400px;
+  }
+}
+
+.menu-item {
+  margin-top: 1rem;
+  .mat-button {
+    padding: 6px 0 !important;
+    width: 100% !important;
+    font-weight: 400 !important;
+    border-radius: 0 !important;
+  }
+  .mat-button-wrapper {
+    padding-left: 16px;
+  }
+  .active-link {
+    background-color: #03a9f4;
+    color: #fff;
+  }
+
+  .menu-icon {
+    margin-right: 12px;
+    padding: 7px;
+    border-radius: 50%;
   }
 }

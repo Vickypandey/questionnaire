@@ -82,7 +82,7 @@ export class PagesComponent implements OnInit {
     }
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        // this.sidenav.close();
+        this.sidenav.close();
         this.settings.mainToolbarFixed = false;
         setTimeout(() => {
           if (isPlatformBrowser(this.platformId)) {

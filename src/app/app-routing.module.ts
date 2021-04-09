@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { PagesComponent } from './pages/pages.component'
+import { PagesComponent } from './pages/pages.component';
 
 const routes: Routes = [
   {
@@ -14,11 +14,17 @@ const routes: Routes = [
 
     ]
   },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules, // <- comment this line for activate lazy load
+    initialNavigation: 'enabled', // for one load page, without reload
+    relativeLinkResolution: 'legacy'
+  }
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

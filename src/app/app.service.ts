@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AppSettings } from 'src/app/app.settings';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
+import { ConfirmDialogComponent, ConfirmDialogModel } from './shared/confirm-dialog/confirm-dialog.component'
 
 export class Data {
   constructor(
@@ -76,6 +77,15 @@ export class AppService {
       autoFocus: false,
       direction: (this.appSettings.settings.rtl) ? 'rtl' : 'ltr'
     });
+  }
+
+  public openConfirmDialog(title: string, message: string) {
+    const dialogData = new ConfirmDialogModel(title, message);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+    return dialogRef;
   }
 
 

@@ -1,0 +1,85 @@
+<mat-toolbar color="primary" class="admin-toolbar mat-elevation-z2">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="w-100">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <div class="logo-section" fxShow="false" fxShow.gt-xs>
+                <a routerLink="/admin">
+                    LOGO
+                </a>
+            </div>
+            <button mat-icon-button (click)="toggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <a mat-icon-button routerLink="/">
+                <mat-icon>home</mat-icon>
+            </a>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+            <app-fullscreen></app-fullscreen>
+            <button mat-icon-button [matMenuTriggerFor]="userMenu" #userMenuTrigger="matMenuTrigger">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+
+            <mat-menu #userMenu="matMenu" [overlapTrigger]="false" class="toolbar-dropdown-menu admin-user-menu">
+                <span (mouseleave)="userMenuTrigger.closeMenu()">
+                    <a mat-menu-item routerLink="/admin">
+                        <mat-icon>person</mat-icon>
+                        <span>Profile</span>
+                    </a>
+                    <a mat-menu-item routerLink="/admin">
+                        <mat-icon>edit</mat-icon>
+                        <span>Edit Profile</span>
+                    </a>
+                    <a mat-menu-item routerLink="/admin">
+                        <mat-icon>settings</mat-icon>
+                        <span>Settings</span>
+                    </a>
+                    <div class="divider"></div>
+                    <a mat-menu-item routerLink="/login">
+                        <mat-icon>power_settings_new</mat-icon>
+                        <span>Log out</span>
+                    </a>
+                </span>
+            </mat-menu>
+        </div>
+    </div>
+</mat-toolbar>
+<mat-drawer-container class="admin-container">
+    <mat-drawer #sidenav [opened]="settings.adminSidenavIsOpened"
+        [mode]="(settings.adminSidenavIsPinned) ? 'side' : 'over'" class="admin-sidenav mat-elevation-z6"
+        autoFocus="false">
+        <perfect-scrollbar>
+            <div class="menu-item">
+                <a mat-button fxLayout="row" fxLayoutAlign="start center" routerLink="/admin"
+                    routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+                    <mat-icon class="menu-icon">dashboard</mat-icon>
+                    <span class="menu-title">Dashboard</span>
+                </a>
+                <a mat-button fxLayout="row" fxLayoutAlign="start center" routerLink="/admin/user-detail"
+                    routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+                    <mat-icon class="menu-icon">supervisor_account</mat-icon>
+                    <span class="menu-title">User Detail</span>
+                </a>
+                <a *ngIf="isExpanded || isShowing" mat-button fxLayout="row" fxLayoutAlign="start center"
+                    (click)="showSubmenu = !showSubmenu">
+                    <mat-icon class="menu-icon">grid_on</mat-icon>
+                    <span class="menu-title">Assesment</span>
+                    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">
+                        expand_more
+                    </mat-icon>
+                </a>
+                <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+                    <a mat-button routerLink="/admin/assesment/" routerLinkActive="active-link"
+                        [routerLinkActiveOptions]="{exact:true}">Assesment</a>
+                    <a mat-button routerLink="/admin/assesment/category" routerLinkActive="active-link"
+                        [routerLinkActiveOptions]="{exact:true}">Category</a>
+                    <a mat-button routerLink="/admin/assesment/questionnaire" routerLinkActive="active-link"
+                        [routerLinkActiveOptions]="{exact:true}">Questionnaire</a>
+                </div>
+            </div>
+        </perfect-scrollbar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

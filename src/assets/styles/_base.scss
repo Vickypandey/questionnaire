@@ -212,6 +212,7 @@ a {
   height: $main-toolbar-height;
   transition: 0.2s;
   z-index: 9;
+  transition: opacity 0.25s ease-out, height 0.5s ease;
 }
 .top-toolbar.mat-toolbar {
   height: $top-toolbar-height;
